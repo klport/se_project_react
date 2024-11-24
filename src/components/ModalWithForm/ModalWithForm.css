@@ -25,19 +25,25 @@
   visibility: visible;
 }
 
-
 .modal__title {
-  margin: 0;
+  font-family: "Cabinet Grotesk-Bold", sans-serif;
+  margin-bottom: 40px;
+  font-size: 20px;
 }
 
 .modal__caption {
   font: 20px;
   line-height: 24px;
-  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-family: "Cabinet Grotesk-Bold", sans-serif;
   margin: 0 0 12px;
 }
 
 .modal__close {
+  width: 22px;
+  height: 22px;
+  background: url(src/assets/modalClose.png);
+background-repeat: no-repeat;
+border: none;
   position: absolute;
   background-color: transparent;
   top: 20px;
@@ -53,8 +59,8 @@
 }
 
 .modal__content {
-  width: 498px;
-  height: 610px;
+  width: 375px;
+  height: 455px;
   background-color: #fff;
   padding: 28px 28px 36px;
   font-size: 16px;
@@ -62,13 +68,21 @@
   line-height: 20px;
   border-radius: 20px;
   margin: auto;
-  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-family: "Cabinet Grotesk-Bold", sans-serif;
   position: fixed;
+}
+
+.modal__preview-content {
+  object-fit:cover;
+  position: relative;
+  gap: 0px; 
+
 }
 
 .modal__form {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .modal__input {
@@ -78,12 +92,15 @@
   max-width: 440px;
   border-top: none;
   border-left: none;
+  border-right: none;
   border-bottom: solid 1px rgba(0, 0, 0, 1);
   padding: 4px 0 4px 2px;
   font-size: 16px;
   line-height: 20px;
   font-weight: 700;
-
+}
+.modal__radio-input {
+  margin-right: 5px;
 }
 
 .modal__radio-buttons {
@@ -91,13 +108,37 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  margin: 0;
+  margin-bottom: 25px;
 }
 
+.modal__legend {
+  margin-bottom: 12px;
+  line-height: 20px;
+  font-weight: bold;
+}
+
+.modal__submit {
+  font-family: "Cabinet Grotesk-Bold", sans-serif;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  font-weight: 700;
+  line-height: 20px;
+  background-color: #0000004d;
+  height: 44px;
+  width: 343px;
+  margin: auto;
+  cursor: pointer;
+}
 
 .modal__footer {
+  font-family: "Cabinet Grotesk-Bold", sans-serif;
+  border-radius: 0 0 12px 12px ; 
+  gap: 0px;
+  background-color: white;
   padding-top: 20px;
   padding-left: 32px;
   padding-right: 32px;
-  padding-bottom: 32px;
+  padding-bottom: 40px;
+  
 }

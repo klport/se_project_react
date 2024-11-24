@@ -45,8 +45,8 @@ function App() {
       <div className="page__content">
         <Header handleAddClick={handleAddClick} weatherData={weatherData} />
         <Main weatherData={weatherData} handleCardClick={handleCardClick} />
-      </div>
-      <ModalWithForm
+      </div> 
+      <ModalWithForm  
         title="New garment"
         buttonText="Add garment"
         activeModal={activeModal}
@@ -67,11 +67,11 @@ function App() {
             type="url"
             className="modal__input"
             id="imageUrl"
-            placeholder="Image Url"
+            placeholder="Image URL"
           />
         </label>
-        <fieldset className="modal __radio-buttons">
-          <legend className="modal__legend">Select the weather type: </ >
+        <fieldset className="modal__radio-buttons">
+          <legend className="modal__legend">Select the weather type: </legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
             <input id="hot" type="radio" className="modal__radio-input" /> Hot
           </label>

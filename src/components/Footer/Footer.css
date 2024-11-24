@@ -1,14 +1,17 @@
 .footer_container {
   display: flex;
-  width: 100%;
-  justify-content: space-between;
+max-width: 1360px;  
+justify-content: space-between;
   align-items: center;
+  margin: auto;
 }
 
 .footer_copyright {
-  margin: 10;
+  margin-left: 100px;
+  padding-left: 10px;
 }
 
 .footer_year {
   margin-top: 0px;
+  margin-left: 20px;
 }
