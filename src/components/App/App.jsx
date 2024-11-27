@@ -70,6 +70,7 @@ function App() {
             placeholder="Image URL"
           />
         </label>
+
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the weather type: </legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
@@ -78,8 +79,8 @@ function App() {
               type="radio"
               name="weather"
               className="modal__radio-input"
-            />{" "}
-            Hot
+            />
+            <span className="modal__radio-text">Hot</span>
           </label>
           <label
             htmlFor="warm"
@@ -90,8 +91,8 @@ function App() {
               type="radio"
               name="weather"
               className="modal__radio-input"
-            />{" "}
-            Warm
+            />
+            <span className="modal__radio-text">Warm</span>
           </label>
           <label
             htmlFor="cold"
@@ -102,8 +103,8 @@ function App() {
               type="radio"
               name="weather"
               className="modal__radio-input"
-            />{" "}
-            Cold
+            />
+            <span className="modal__radio-text">Cold</span>
           </label>
         </fieldset>
       </ModalWithForm>
