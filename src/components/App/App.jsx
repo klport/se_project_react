@@ -16,7 +16,7 @@ function App() {
   });
 
   const [activeModal, setActiveModal] = useState("");
-  const [SelectedCard, setSelectedCard] = useState({});
+  const [selectedCard, setSelectedCard] = useState({});
 
   const handleCardClick = (card) => {
     setActiveModal("preview");
@@ -110,7 +110,7 @@ function App() {
       </ModalWithForm>
       <ItemModal
         activeModal={activeModal}
-        card={SelectedCard}
+        card={selectedCard}
         onClose={closeActiveModal}
       />
       <Footer />

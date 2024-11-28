@@ -63,13 +63,12 @@
 
 .modal__content {
   width: 375px;
-  height: 455px;
   background-color: #fff;
-  padding: 28px 28px 0;
+  padding: 28px 28px;
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
-  border-radius: 20px 20px 0 0;
+  border-radius: 20px;
   font-family: "Cabinet Grotesk", sans-serif;
   position: fixed;
 }
@@ -104,6 +103,7 @@
 }
 .modal__radio-input {
   margin-right: 5px;
+  padding-rght: 20px;
 }
 
 .modal__radio-buttons {
@@ -112,7 +112,6 @@
   display: flex;
   flex-direction: column;
   margin-bottom: 25px;
-  
 }
 
 .modal__label_type_radio {
@@ -137,19 +136,21 @@
   color: #ffffff;
   font-size: 16px;
   line-height: 20px;
-  background-color: #000000;
+  background-color:#0000004D;
   height: 50px;
   width: 375px;
   margin-top: px;
   cursor: pointer;
 }
 
+
+
 .modal__submit:hover {
-  opacity: 40%;
+  background-color: black;
 }
 
 .modal__submit:hover:not(:disabled) {
-  opacity: 70%;
+  
 }
 
 
@@ -157,6 +158,7 @@
   font-family: "Cabinet Grotesk", sans-serif;
   border-radius: 0 0 12px 12px;
   background-color: white;
+  pcity: 40%;
   padding-top: 20px;
   padding-left: 32px;
   padding-right: 32px;
