@@ -41,19 +41,19 @@ export const defaultClothingItems = [
     _id: 1,
     name: "Hoodie",
     weather: "warm",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8",
+    link: "https://media.istockphoto.com/id/1945303497/photo/front-and-back-views-of-a-man-wearing-a-black-oversized-hoodie-with-blank-space-ideal-for-a.jpg?s=1024x1024&w=is&k=20&c=pH8RIdo8K-VIqPNlmfXeVj1Ghy3oqqaNOA9Q-FO36dU=",
   },
   {
     _id: 2,
     name: "Jacket",
     weather: "cold",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jacket.png?etag=f4bb188deaa25ac84ce2338be2d404ad",
+    link: "https://media.istockphoto.com/id/505623612/photo/leather-jacket.jpg?s=2048x2048&w=is&k=20&c=qrJtiMK4D7nmQRTOgzdVZvzUzMzAr_LsDv0aYthY4Lg=",
   },
   {
     _id: 3,
     name: "Sneakers",
     weather: "cold",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sneakers.png?etag=3efeec41c1c78b8afe26859ca7fa7b6f",
+    link: "https://media.istockphoto.com/id/155096664/photo/tennis-shoes.jpg?s=2048x2048&w=is&k=20&c=_bgCtzxONMVlpsE9EXQG8QNoF4qOyn39K_lUntxKolA=",
   },
   {
     _id: 4,
@@ -65,7 +65,14 @@ export const defaultClothingItems = [
     _id: 5,
     name: "Coat",
     weather: "cold",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Coat.png?etag=298717ed89d5e40b1954a1831ae0bdd4",
+    link: "https://media.istockphoto.com/id/1124442408/photo/leather-jacket-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=fBfdhwFKJ5r66quyMg3UmwDFaxJbdbphyRU1Rnirg-k=",
+  },
+
+  {
+    _id: 6,
+    name: "Pants",
+    weather: "cold",
+    link: "https://media.istockphoto.com/id/470984912/photo/mens-jeans.jpg?s=1024x1024&w=is&k=20&c=KVpdfQABMxwZ1o0azgX8FAHTzP0G823urlJVGCEpUh8=",
   },
 ];
 
