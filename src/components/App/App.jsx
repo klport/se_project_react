@@ -35,6 +35,7 @@ function App() {
   };
 
   const handleCardClick = (card) => {
+    console.log("card clicked: ",card)
     setActiveModal("preview");
     setSelectedCard(card);
   };
@@ -94,7 +95,7 @@ function App() {
                 // pass clothingItems as a Prop
                 <Main
                   weatherData={weatherData}
-                  handleCardClick={handleCardClick}
+                  onCardClick={handleCardClick}
                   clothingItems={clothingItems}
                 />
               }
