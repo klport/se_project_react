@@ -23,7 +23,7 @@ function App() {
     isDay: false,
   });
 
-  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+  const [clothingItems, setClothingItems] = useState([]);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
@@ -70,7 +70,9 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        console.log(data);
+      
+        setClothingItems(data);
+
         //set the clothing items
       })
       .catch(console.error);
@@ -86,7 +88,11 @@ function App() {
     >
       <div className="page">
         <div className="page__content">
-          <Header handleAddClick={handleAddClick} weatherData={weatherData} />
+          <Header
+            handleAddClick={handleAddClick}
+            weatherData={weatherData}
+            clothingItems={clothingItems}
+          />
 
           <Routes>
             <Route
