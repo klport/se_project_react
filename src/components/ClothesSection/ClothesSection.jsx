@@ -20,6 +20,7 @@ function ClothesSection({ onCardClick }) {
                 item={item}
                 // TODO - pass as prop
                 onCardClick={onCardClick}
+                
               />
             );
           })}

@@ -1,19 +1,18 @@
 import ClothesSection from "../ClothesSection/ClothesSection.jsx";
-import SideBar from "../SideBar/SideBar.jsx"
-import "./Profile.css"
-
+import SideBar from "../SideBar/SideBar.jsx";
+import "./Profile.css";
 
 function Profile({ onCardClick }) {
- return (
-  <div className="profile">
-    <section className="profile__sidebar">
-     <SideBar />
-    </section>
+  return (
+    <div className="profile">
+      <section className="profile__sidebar">
+        <SideBar />
+      </section>
 
-    <section className="profile__clothting-items">
-     <ClothesSection onCardClick={onCardClick}/>
-    </section>
-  </div>
+      <section className="profile__clothting-items">
+        <ClothesSection onCardClick={onCardClick} />
+      </section>
+    </div>
   );
 }
 
