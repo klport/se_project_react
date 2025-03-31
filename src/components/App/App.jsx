@@ -9,9 +9,11 @@ import { getWeather, filterWeatherData } from "../../utils/weatherAPI";
 import Footer from "../Footer/Footer";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
+import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmationModal";
 import Profile from "../Profile/Profile";
 
 import { getItems, addItem, deleteItem } from "../../utils/api";
+
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -39,23 +41,54 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleDeleteCard = (itemId) => {
+    deleteItem(itemId)
+      .then(() => {
+        setClothingItems((prevItems) =>
+          prevItems.filter((item) => item._id !== itemId)
+        );
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  // }
+
   const handleAddClick = () => {
+    console.log("Add button clicked");
     setActiveModal("add-garment");
   };
 
+  const handleDeleteButtonClick = () => {
+    console.log("Delete button clicked");
+    setActiveModal("delete-confirmation");
+  };
   const closeActiveModal = () => {
     setActiveModal("");
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     //update clothingItems array
-    setClothingItems((prevItems) => [
-      { name, link: imageUrl, weather },
-      ...prevItems,
-    ]);
-    closeActiveModal();
+    // setClothingItems((prevItems) => [
+    //   { name, link: imageUrl, weather },
+    //   ...prevItems,
+    // ]);
+    // closeActiveModal();
+
+    addItem({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems([...clothingItems, newItem]);
+        closeActiveModal();
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+
   };
 
+  
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -69,12 +102,9 @@ function App() {
     getItems()
       .then((data) => {
         setClothingItems(data);
-
       })
       .catch(console.error);
   }, []);
-
-
 
   return (
     <CurrentTemperatureUnitContext.Provider
@@ -122,7 +152,15 @@ function App() {
           activeModal={activeModal}
           card={selectedCard}
           onClose={closeActiveModal}
+          onDeleteCard={handleDeleteCard}
+          onDeleteButtonClick={handleDeleteButtonClick}
         />
+        <DeleteConfirmationModal
+        isOpen={activeModal ==="delete-confirmation"}
+        onClose={closeActiveModal}
+        onConfirm={() => handleDeleteCard(selectedCard._id)}
+          />
+        
         <Footer />
       </div>
     </CurrentTemperatureUnitContext.Provider>
