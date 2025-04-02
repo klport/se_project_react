@@ -1,28 +1,4 @@
-.delete-modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 600px;
-  height: 280px;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: 0%;
-  text-align: center;
-}
 
-.delete-modal__content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  width: 100%;
-}
 
 .modal__buttons {
   display: flex;

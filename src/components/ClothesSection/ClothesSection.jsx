@@ -1,7 +1,8 @@
-import { defaultClothingItems } from "../../utils/constants";
+
 import ItemCard from "../ItemCard/ItemCard";
 
-function ClothesSection({ onCardClick, clothingItems }) {
+function ClothesSection({ onCardClick, clothingItems}) {
+  console.log("ClothesSection rendered with clothingItems:", clothingItems);;
   return (
     <div className="clothes-section">
       <div>
@@ -20,7 +21,6 @@ function ClothesSection({ onCardClick, clothingItems }) {
                 item={item}
                 // TODO - pass as prop
                 onCardClick={onCardClick}
-                
               />
             );
           })}
