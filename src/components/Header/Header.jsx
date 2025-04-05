@@ -1,11 +1,19 @@
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import menuIcon from "../../assets/menuIcon.svg";
+import modalClose from "../../assets/modalClose.png";
 
 function Header({ handleAddClick, weatherData }) {
+  const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpened(!isMobileMenuOpened);
+  };
+
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -16,11 +24,23 @@ function Header({ handleAddClick, weatherData }) {
       <Link to="/">
         <img className="header__logo" alt="WTWR logo" src={logo} />
       </Link>
+
+      <button className="header__menu-button" onClick={toggleMobileMenu}>
+        <img
+          src={isMobileMenuOpened ? modalClose : menuIcon}
+          alt={isMobileMenuOpened ? "Close menu" : "Open menu"}
+        />
+      </button>
+
+      <nav className={`header__nav ${isMobileMenuOpened ? 'header__nav_opened' : ''}`}>
+
+
       <div className="header__container">
         <p className="header__date-and-location">
           {currentDate}, {weatherData.city}
         </p>
       </div>
+      
 
       <ToggleSwitch />
       <button
@@ -34,13 +54,10 @@ function Header({ handleAddClick, weatherData }) {
       <Link to="/profile" className="header__link">
         <div className="header__user-container">
           <p className="header__username">Terrence Tegegne</p>{" "}
-          <img 
-          src={avatar} 
-          alt="Terrence Tegegne" 
-          className="header__avatar" 
-          />
+          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
         </div>
       </Link>
+      </nav>
     </header>
   );
 }

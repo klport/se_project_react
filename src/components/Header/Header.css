@@ -1,59 +1,85 @@
 .header {
- display: flex;
- align-items: center;
- padding: 32px 0 28px;
- font-family: "Cabinet Grotesk", sans-serif
-}
-.header__logo {
- margin-right: 24px; 
-}
-.header__date-and-location {
- margin: 0;
-}
-
-.header__add-clothes-btn {
- margin: 0 20px 0;
- border: none;
- background: transparent;
-}
-
-.header__user-container {
- /*if you want to turn a column into a row, try flex-box*/
- display: flex;
- align-items: center;
- gap: 12px; /*used to create space btn items ONLY in FLEX containders - applies to the space btwn direct child elements of the container w/out affecting the sapce outside of the container*/
-}
-
-.header__username {
-
- margin: 0;
-}
-
-.header__link{
- text-decoration: none;
- color:#000;
-}
-
-@media screen and (max-width:768px){
- .header {
-  height: 44px;
-  margin-bottom: 28px;
- }
-}
-
-@media screen and (max-width:768px){
- .header__user-container {
   display: flex;
   align-items: center;
-  flex: 0 0 auto;
-  max-width: 50%;
- }
+  padding: 32px 0 28px;
+  font-family: "Cabinet Grotesk", sans-serif;
 }
-@media screen and (max-width:768px){
- .header__logo {
+
+.header__logo {
   flex: 0 0 88px;
   position: relative;
   top: -5px;
-  margin: 1;
- }
+  margin-right: 24px;
+}
+
+.header__date-and-location {
+  margin: 0;
+}
+
+.header__navigation {
+  display: flex;
+  align-items: center;
+}
+
+.header__add-clothes-btn {
+  margin: 0 20px;
+  border: none;
+  background: transparent;
+}
+
+.header__user-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 0 0 auto;
+}
+
+.header__username {
+  margin: 0;
+}
+
+.header__link {
+  text-decoration: none;
+  color: #000;
+}
+
+.header__menu-button {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .header {
+    height: 44px;
+    margin-bottom: 28px;
+  }
+
+  .header__menu-button {
+    display: block;
+  }
+
+  .header__navigation {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    padding: 20px 0;
+    gap: 20px;
+  }
+
+  .header__navigation--active {
+    transform: translateX(0);
+  }
+
+  .header__user-container {
+    max-width: 50%;
+  }
 }

@@ -11,6 +11,12 @@
       "imageUrl": "https://media.istockphoto.com/id/505623612/photo/leather-jacket.jpg?s=2048x2048&w=is&k=20&c=qrJtiMK4D7nmQRTOgzdVZvzUzMzAr_LsDv0aYthY4Lg=",
       "weather": "warm",
       "_id": 19
+    },
+    {
+      "name": " testingcold",
+      "imageUrl": "https://media.istockphoto.com/id/1124442408/photo/leather-jacket-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=fBfdhwFKJ5r66quyMg3UmwDFaxJbdbphyRU1Rnirg-k=",
+      "weather": "cold",
+      "_id": 20
     }
   ]
 }

@@ -1,8 +1,7 @@
-
 import ItemCard from "../ItemCard/ItemCard";
 
-function ClothesSection({ onCardClick, clothingItems}) {
-  console.log("ClothesSection rendered with clothingItems:", clothingItems);;
+function ClothesSection({ onCardClick, clothingItems }) {
+  console.log("ClothesSection rendered with clothingItems:", clothingItems);
   return (
     <div className="clothes-section">
       <div>
