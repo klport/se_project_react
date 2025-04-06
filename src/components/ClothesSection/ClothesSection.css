@@ -1,0 +1,9 @@
+@media screen and (max-width: 380px) {
+ .clothes-section__items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  padding: 0 17px;
+  justify-items: center;
+ }
+}

@@ -1,8 +1,5 @@
 .card {
   border-radius: 15px;
-}
-
-.card {
   width: 323px;
   position: relative;
   display: flex;
@@ -15,7 +12,7 @@
   margin: 0;
   font-family: "Cabinet Grotesk", sans-serif;
   font-weight: 300;
-  size: 16px;
+  font-size: 26px;
   line-height: 1;
   background-color: #ffffff;
   width: auto;
@@ -23,7 +20,7 @@
   height: 24px;
   gap: 0px;
   border-radius: 4px;
-  opacity: 0px;
+  opacity: .9; 
 }
 
 .cards__list {
@@ -40,3 +37,19 @@
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.3);
 }
+
+@media screen and (max-width: 380px) {
+  .card {
+    position: relative;
+    width: 162px;
+    height: 162px;
+    margin-top: 20px;
+  }
+
+  .card__image {
+    width: 162px;
+    height: 162px;
+    object-fit: cover;
+  }
+}
+

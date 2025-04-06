@@ -25,6 +25,12 @@ function Header({ handleAddClick, weatherData }) {
         <img className="header__logo" alt="WTWR logo" src={logo} />
       </Link>
 
+      <div className="header__container">
+        <p className="header__date-and-location">
+          {currentDate}, {weatherData.city}
+        </p>
+      </div>
+
       <button className="header__menu-button" onClick={toggleMobileMenu}>
         <img
           src={isMobileMenuOpened ? modalClose : menuIcon}
@@ -32,31 +38,30 @@ function Header({ handleAddClick, weatherData }) {
         />
       </button>
 
-      <nav className={`header__nav ${isMobileMenuOpened ? 'header__nav_opened' : ''}`}>
-
-
-      <div className="header__container">
-        <p className="header__date-and-location">
-          {currentDate}, {weatherData.city}
-        </p>
-      </div>
-      
-
-      <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
+      <nav
+        className={`header__navigation ${
+          isMobileMenuOpened ? "header__navigation--active" : ""
+        }`}
       >
-        + Add Clothes
-      </button>
+        <ToggleSwitch />
+        <button
+          onClick={handleAddClick}
+          type="button"
+          className="header__add-clothes-btn"
+        >
+          + Add Clothes
+        </button>
 
-      <Link to="/profile" className="header__link">
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>{" "}
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
-        </div>
-      </Link>
+        <Link to="/profile" className="header__link">
+          <div className="header__user-container">
+            <p className="header__username">Terrence Tegegne</p>{" "}
+            <img
+              src={avatar}
+              alt="Terrence Tegegne"
+              className="header__avatar"
+            />
+          </div>
+        </Link>
       </nav>
     </header>
   );
