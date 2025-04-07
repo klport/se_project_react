@@ -25,6 +25,8 @@
 
 .cards__list {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
@@ -36,6 +38,9 @@
   width: 100%;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.3);
+  position: relative;
+  display: flex;
+  justify-content: center;
 }
 
 @media screen and (max-width: 380px) {
