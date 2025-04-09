@@ -1,13 +1,13 @@
 import ItemCard from "../ItemCard/ItemCard";
+import './ClothesSection.css'
 
-function ClothesSection({ onCardClick, clothingItems }) {
+function ClothesSection({ onCardClick, clothingItems, handleOpenModal }) {
   console.log("ClothesSection rendered with clothingItems:", clothingItems);
   return (
     <div className="clothes-section">
-      <button type="submit">+ Add New Clothes</button><button type="submit">+ Add New Clothes</button>
       <div>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        <button type="submit">+ Add New Clothes</button>
+        <button type="submit" onClick={handleOpenModal}>+ Add New Clothes</button>
       </div>
       <ul className="clothes-section__items">
         {clothingItems
