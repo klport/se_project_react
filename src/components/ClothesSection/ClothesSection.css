@@ -10,6 +10,7 @@ grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
   grid-template-columns: 1fr;
   gap: 20px;
   padding: 0 17px;
+  align-items: center;
   justify-items: center;
  }
 }
@@ -18,6 +19,8 @@ grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
   .clothes-section__items {
     grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
     grid-auto-rows: 164px;
+    justify-content: center;
+    align-items: center;
   }
 
 
