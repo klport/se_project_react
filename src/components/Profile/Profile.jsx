@@ -2,7 +2,7 @@ import ClothesSection from "../ClothesSection/ClothesSection.jsx";
 import SideBar from "../SideBar/SideBar.jsx";
 import "./Profile.css";
 
-function Profile({ onCardClick, clothingItems }) {
+function Profile({ onCardClick, clothingItems, handleOpenModal }) {
   return (
     <div className="profile">
       <section className="profile__sidebar">
@@ -11,7 +11,8 @@ function Profile({ onCardClick, clothingItems }) {
 
       <section className="profile__clothting-items">
         <ClothesSection 
-        onCardClick={onCardClick} clothingItems={clothingItems} />
+        onCardClick={onCardClick} clothingItems={clothingItems} 
+        handleOpenModal={handleOpenModal}/>
       </section>
     </div>
   );
