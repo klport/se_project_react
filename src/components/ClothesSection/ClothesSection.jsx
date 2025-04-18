@@ -23,7 +23,7 @@ function ClothesSection({ onCardClick, clothingItems, handleOpenModal, handleAdd
           type="button"
           className="header__add-clothes-btn"
         >
-          + Add Clothes
+        
         </button>
       </div>
       <ul className="clothes-section__items">

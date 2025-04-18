@@ -79,7 +79,7 @@ function App() {
 
     addItem({ name, imageUrl, weather })
       .then((newItem) => {
-        setClothingItems([...clothingItems, newItem]);
+        setClothingItems([newItem,... clothingItems]);
         closeActiveModal();
       })
       .catch((error) => {
