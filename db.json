@@ -1,22 +1,46 @@
 {
   "items": [
     {
-      "_id": 13,
-      "name": "Sneakers",
-      "weather": "warm",
-      "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Sneakers.png?etag=3efeec41c1c78b8afe26859ca7fa7b6f"
-    },
-    {
       "name": " testing4968",
       "imageUrl": "https://media.istockphoto.com/id/505623612/photo/leather-jacket.jpg?s=2048x2048&w=is&k=20&c=qrJtiMK4D7nmQRTOgzdVZvzUzMzAr_LsDv0aYthY4Lg=",
       "weather": "warm",
       "_id": 19
     },
     {
-      "name": " testingcold",
+      "name": " testing",
+      "imageUrl": "https://react.dev/reference/react-dom/components/input",
+      "weather": "cold",
+      "_id": 21
+    },
+    {
+      "name": "test 2",
+      "imageUrl": "https://media.istockphoto.com/id/505623612/photo/leather-jacket.jpg?s=2048x2048&w=is&k=20&c=qrJtiMK4D7nmQRTOgzdVZvzUzMzAr_LsDv0aYthY4Lg=",
+      "weather": "warm",
+      "_id": 22
+    },
+    {
+      "name": "test 2",
       "imageUrl": "https://media.istockphoto.com/id/1124442408/photo/leather-jacket-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=fBfdhwFKJ5r66quyMg3UmwDFaxJbdbphyRU1Rnirg-k=",
       "weather": "cold",
-      "_id": 20
+      "_id": 23
+    },
+    {
+      "name": "kjnij",
+      "imageUrl": "https://media.istockphoto.com/id/1124442408/photo/leather-jacket-isolated-on-white-background.jpg?s=2048x2048&w=is&k=20&c=fBfdhwFKJ5r66quyMg3UmwDFaxJbdbphyRU1Rnirg-k=",
+      "weather": "cold",
+      "_id": 24
+    },
+    {
+      "name": " testing",
+      "imageUrl": "https://react.dev/reference/react-dom/components/input",
+      "weather": "warm",
+      "_id": 25
+    },
+    {
+      "name": "vdbdh",
+      "imageUrl": "https://react.dev/reference/react-dom/components/input",
+      "weather": "cold",
+      "_id": 26
     }
   ]
 }

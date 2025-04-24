@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { act, useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import { coordinates, APIkey } from "../../utils/constants";
@@ -14,7 +14,6 @@ import Profile from "../Profile/Profile";
 
 import { getItems, addItem, deleteItem } from "../../utils/api";
 
-
 function App() {
   const [weatherData, setWeatherData] = useState({
     city: " ",
@@ -28,6 +27,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
+  const [isLoading, setIsLoading] = useState(false);
 
   console.log(currentTemperatureUnit);
   const handleToggleSwitchChange = () => {
@@ -49,9 +49,7 @@ function App() {
         );
         closeActiveModal();
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch(error);
   };
 
   // }
@@ -70,25 +68,21 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    //update clothingItems array
-    // setClothingItems((prevItems) => [
-    //   { name, link: imageUrl, weather },
-    //   ...prevItems,
-    // ]);
-    // closeActiveModal();
+    setIsLoading(true);
 
     addItem({ name, imageUrl, weather })
       .then((newItem) => {
-        setClothingItems([newItem,... clothingItems]);
+        setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
       })
       .catch((error) => {
         console.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
       });
-
   };
 
-  
   useEffect(() => {
     getWeather(coordinates, APIkey)
       .then((data) => {
@@ -105,6 +99,21 @@ function App() {
       })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    if (!activeModal) return;
+    
+    const handleEscKey = (e) => {
+      if (e.key === "Escape") {
+        closeActiveModal();
+      }
+    };
+    document.addEventListener("keydown", handleEscKey);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscKey);
+    };
+  }, [activeModal]);
 
   return (
     <CurrentTemperatureUnitContext.Provider
@@ -136,6 +145,7 @@ function App() {
                 <Profile
                   onCardClick={handleCardClick}
                   clothingItems={clothingItems}
+                  handleOpenModal={handleAddClick}
                 />
               }
             />
@@ -146,6 +156,7 @@ function App() {
           isOpen={activeModal === "add-garment"}
           onClose={closeActiveModal}
           onAddItemModalSubmit={handleAddItemModalSubmit}
+          isLoading={isLoading}
         />
 
         <ItemModal
@@ -156,11 +167,11 @@ function App() {
           onDeleteButtonClick={handleDeleteButtonClick}
         />
         <DeleteConfirmationModal
-        isOpen={activeModal ==="delete-confirmation"}
-        onClose={closeActiveModal}
-        onConfirm={() => handleDeleteCard(selectedCard._id)}
-          />
-        
+          isOpen={activeModal === "delete-confirmation"}
+          onClose={closeActiveModal}
+          onConfirm={() => handleDeleteCard(selectedCard._id)}
+        />
+
         <Footer />
       </div>
     </CurrentTemperatureUnitContext.Provider>

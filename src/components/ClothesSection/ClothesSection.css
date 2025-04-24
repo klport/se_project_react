@@ -1,7 +1,7 @@
 .clothes-section__items {
   display: grid;
-  gap: 200px;
-  grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
+  gap: 100px;
+  grid-template-columns: repeat(3, 1fr);
   margin: 0px;
   padding: 0px;
   list-style: none;
@@ -10,7 +10,7 @@
 @media screen and (max-width: 380px) {
   .clothes-section__items {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));
     gap: 20px;
     padding: 0 17px;
     align-items: center;
@@ -25,4 +25,10 @@
     justify-content: center;
     align-items: center;
   }
+}
+
+@media screen and (max-width: 768px) {
+ .clothes-section__items {
+     grid-template-columns: repeat(auto-fill, minmax(162px, 1fr));  /* 2 items per row on medium screens */
+ }
 }

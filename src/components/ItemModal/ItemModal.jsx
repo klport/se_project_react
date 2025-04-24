@@ -1,5 +1,13 @@
 import "./ItemModal.css";
-function ItemModal({ activeModal, onClose, card, onDeleteCard, onDeleteButtonClick }) {
+
+
+function ItemModal({
+  activeModal,
+  onClose,
+  card,
+  onDeleteCard,
+  onDeleteButtonClick,
+}) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
       <div className="modal__preview-content">

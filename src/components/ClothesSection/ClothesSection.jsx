@@ -8,7 +8,7 @@ function ClothesSection({ onCardClick, clothingItems, handleOpenModal, handleAdd
   return (
     <div className="clothes-section">
       <div>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        
         <button
           type="submit"
           onClick={() => {
