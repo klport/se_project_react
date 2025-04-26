@@ -21,48 +21,55 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      <Link to="/">
-        <img className="header__logo" alt="WTWR logo" src={logo} />
-      </Link>
+      <div className= "header__desktop-container">
+        <Link to="/">
+          <img className="header__logo" alt="WTWR logo" src={logo} />
+        </Link>
 
-      <div className="header__container">
+        <div className="header__container">
+          <p className="header__date-and-location">
+            {currentDate}, {weatherData.city}
+          </p>
+        </div>
+
+        <button className="header__menu-button" onClick={toggleMobileMenu}>
+          <img
+            src={isMobileMenuOpened ? modalClose : menuIcon}
+            alt={isMobileMenuOpened ? "Close menu" : "Open menu"}
+          />
+        </button>
+
+        <nav
+          className={`header__navigation ${
+            isMobileMenuOpened ? "header__navigation--active" : ""
+          }`}
+        >
+          <ToggleSwitch />
+          <button
+            onClick={handleAddClick}
+            type="button"
+            className="header__add-clothes-btn"
+          >
+            + Add Clothes
+          </button>
+
+          <Link to="/profile" className="header__link">
+            <div className="header__user-container">
+              <p className="header__username">Terrence Tegegne</p>{" "}
+              <img
+                src={avatar}
+                alt="Terrence Tegegne"
+                className="header__avatar"
+              />
+            </div>
+          </Link>
+        </nav>
+      </div>
+      <div className="header__container header__container_mobile">
         <p className="header__date-and-location">
           {currentDate}, {weatherData.city}
         </p>
       </div>
-
-      <button className="header__menu-button" onClick={toggleMobileMenu}>
-        <img
-          src={isMobileMenuOpened ? modalClose : menuIcon}
-          alt={isMobileMenuOpened ? "Close menu" : "Open menu"}
-        />
-      </button>
-
-      <nav
-        className={`header__navigation ${
-          isMobileMenuOpened ? "header__navigation--active" : ""
-        }`}
-      >
-        <ToggleSwitch />
-        <button
-          onClick={handleAddClick}
-          type="button"
-          className="header__add-clothes-btn"
-        >
-          + Add Clothes
-        </button>
-
-        <Link to="/profile" className="header__link">
-          <div className="header__user-container">
-            <p className="header__username">Terrence Tegegne</p>{" "}
-            <img
-              src={avatar}
-              alt="Terrence Tegegne"
-              className="header__avatar"
-            />
-          </div>
-        </Link>
-      </nav>
     </header>
   );
 }

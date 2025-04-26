@@ -1,6 +1,5 @@
 .card {
   border-radius: 15px;
-  width: 323px;
   height: 325px;
   position: relative;
   display: flex;
@@ -42,6 +41,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 380px) {

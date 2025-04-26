@@ -49,7 +49,8 @@ function App() {
         );
         closeActiveModal();
       })
-      .catch(error);
+      .catch((error) =>
+        console.error(error));
   };
 
   // }

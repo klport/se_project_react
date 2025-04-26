@@ -9,7 +9,7 @@ function Profile({ onCardClick, clothingItems, handleOpenModal }) {
         <SideBar />
       </section>
 
-      <section className="profile__clothting-items">
+      <section className="profile__clothing-items">
         <ClothesSection 
         onCardClick={onCardClick} clothingItems={clothingItems} 
         handleOpenModal={handleOpenModal}/>
