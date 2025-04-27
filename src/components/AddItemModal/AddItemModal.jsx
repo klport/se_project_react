@@ -17,17 +17,23 @@ export default function AddItemModal({
     weather: "",
   });
 
-  useEffect(() => {
-    setValues({
-      name: " ",
-      imageUrl: " ",
-      weather: " ",
-    });
-  }, [isOpen]);
+  // useEffect(() => {
+  //   setValues({
+  //     name: " ",
+  //     imageUrl: " ",
+  //     weather: " ",
+  //   });
+  // }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItemModalSubmit(values);
+    onAddItemModalSubmit(values).then(() => {
+      setValues({
+        name: " ",
+        imageUrl: " ",
+        weather: " ",
+      });
+    });
   };
 
   return (

@@ -27,6 +27,14 @@
 }
 
 .header__add-clothes-btn {
+  
+  margin: 0 20px;
+  border: none;
+  background: transparent;
+}
+
+.header__add-profile-clothes-btn {
+  color: #00000099;
   margin: 0 20px;
   border: none;
   background: transparent;

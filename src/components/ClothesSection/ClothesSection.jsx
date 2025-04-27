@@ -7,16 +7,18 @@ function ClothesSection({ onCardClick, clothingItems, handleOpenModal, handleAdd
   console.log("ClothesSection rendered with clothingItems:", clothingItems);
   return (
     <div className="clothes-section">
-      <div>
+      <div className="clothes-section__add-item">
         
+        <p>Your items</p>
         <button
+        className="header__add-profile-clothes-btn"
           type="submit"
           onClick={() => {
             console.log("Button clicked!");
             handleOpenModal();
           }}
         >
-          + Add New Clothes
+          + Add New 
         </button>
         <button
           onClick={handleAddClick}

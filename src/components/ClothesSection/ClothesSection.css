@@ -7,6 +7,10 @@
   list-style: none;
 }
 
+.clothes-section__add-item {
+  display: flex
+}
+
 @media screen and (max-width: 768px) {
   .clothes-section__items {
     grid-template-columns: repeat(

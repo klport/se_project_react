@@ -49,8 +49,7 @@ function App() {
         );
         closeActiveModal();
       })
-      .catch((error) =>
-        console.error(error));
+      .catch((error) => console.error(error));
   };
 
   // }
@@ -71,7 +70,7 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     setIsLoading(true);
 
-    addItem({ name, imageUrl, weather })
+    return addItem({ name, imageUrl, weather })
       .then((newItem) => {
         setClothingItems([newItem, ...clothingItems]);
         closeActiveModal();
@@ -103,7 +102,7 @@ function App() {
 
   useEffect(() => {
     if (!activeModal) return;
-    
+
     const handleEscKey = (e) => {
       if (e.key === "Escape") {
         closeActiveModal();

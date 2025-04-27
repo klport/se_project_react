@@ -4,6 +4,8 @@
   position: relative;
   display: flex;
   justify-content: center;
+  width: 323px;
+  z-index: 0;
 }
 
 .card__name {
@@ -20,7 +22,8 @@
   height: 24px;
   gap: 0px;
   border-radius: 4px;
-  opacity: .9; 
+  opacity: 0.9;
+  z-index: 1;
 }
 
 .cards__list {
@@ -35,13 +38,15 @@
 }
 
 .card__image {
+  max-width: 498px;
+  max-height: 498px;
   width: 100%;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   position: relative;
   display: flex;
   justify-content: center;
-  object-fit: cover;
+
 }
 
 @media screen and (max-width: 380px) {
@@ -58,4 +63,3 @@
     object-fit: cover;
   }
 }
-
