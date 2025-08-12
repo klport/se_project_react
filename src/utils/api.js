@@ -1,10 +1,20 @@
 const baseUrl = "http://localhost:3001";
-const request = (url, options) => {
+
+const request = (url, options = {}) => {
+  const token = localStorage.getItem("jwt");
+
+  const headers = {
+    "Content-Type": "application/json",
+    ...(options.headers || {}),
+  };
+
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+
   return fetch(url, {
-    headers: {
-      "Content-Type": "application/json",
-    },
     ...options,
+    headers,
   }).then(handleServerResponse);
 };
 
@@ -29,4 +39,4 @@ function deleteItem(itemId) {
   });
 }
 
-export { getItems, addItem, deleteItem, handleServerResponse };
+export { getItems, addItem, deleteItem, handleServerResponse, baseUrl };

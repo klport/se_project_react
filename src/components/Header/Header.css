@@ -27,7 +27,6 @@
 }
 
 .header__add-clothes-btn {
-  
   margin: 0 20px;
   border: none;
   background: transparent;
@@ -68,12 +67,17 @@
   padding: 0;
 }
 
+.header__avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
 @media screen and (max-width: 768px) {
   .header {
     position: relative;
     padding: 28px 0px 16px;
     justify-content: space-between;
-    
   }
 
   .header__container {
@@ -110,7 +114,6 @@
   .header__container {
     display: none;
     margin-top: 32px;
-
   }
 
   .header__container_mobile {

@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
 import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import menuIcon from "../../assets/menuIcon.svg";
 import modalClose from "../../assets/modalClose.png";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
-function Header({ handleAddClick, weatherData }) {
+function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
   const [isMobileMenuOpened, setIsMobileMenuOpened] = useState(false);
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpened(!isMobileMenuOpened);
@@ -21,7 +23,7 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      <div className= "header__desktop-container">
+      <div className="header__desktop-container">
         <Link to="/">
           <img className="header__logo" alt="WTWR logo" src={logo} />
         </Link>
@@ -52,17 +54,28 @@ function Header({ handleAddClick, weatherData }) {
           >
             + Add Clothes
           </button>
-
-          <Link to="/profile" className="header__link">
-            <div className="header__user-container">
-              <p className="header__username">Terrence Tegegne</p>{" "}
-              <img
-                src={avatar}
-                alt="Terrence Tegegne"
-                className="header__avatar"
-              />
+          {isLoggedIn ? (
+            <Link to="/profile" className="header__link">
+              <div className="header__user-container">
+                <p className="header__username">{currentUser.name}</p>
+                {currentUser.avatarUrl ? (
+                  <img
+                    src={currentUser.avatarUrl}
+                    alt={currentUser.name}
+                    className="header__avatar"
+                  />
+                ) : (
+                  <span>K {currentUser.name}</span>
+                )}
+                {/* 1st letter of user name, make it CAPS */}
+              </div>
+            </Link>
+          ) : (
+            <div>
+              <button onClick={onSignUpClick}>Sign up </button>
+              <button onClick={onLoginClick}> Log in</button>
             </div>
-          </Link>
+          )}
         </nav>
       </div>
       <div className="header__container header__container_mobile">

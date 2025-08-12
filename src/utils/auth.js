@@ -1,0 +1,47 @@
+import { baseUrl } from "./api";
+
+function registerUser({ name, avatarUrl, email, password }) {
+  debugger;
+  return fetch(`${baseUrl}/signup`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, avatarUrl, email, password }),
+  }).then((res) => {
+    if (!res.ok) {
+      return res.json().then((err) => Promise.reject(err));
+    }
+    return res.json();
+  });
+}
+
+function loginUser({ email, password }) {
+  return fetch(`${baseUrl}/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  }).then((res) => {
+    if (!res.ok) {
+      return res.json().then((err) => Promise.reject(err));
+    }
+    return res.json();
+  });
+}
+
+function getCurrentUser({ token }) {
+  return fetch(`${baseUrl}/users/me`, {
+    headers: {
+      authorization: `Bearer ${token}`,
+    },
+  }).then((res) => {
+    if (!res.ok) {
+      return res.json().then((err) => Promise.reject(err));
+    }
+    return res.json();
+  });
+}
+
+export { registerUser, loginUser, getCurrentUser };
