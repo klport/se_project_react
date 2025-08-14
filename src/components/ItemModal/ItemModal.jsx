@@ -11,6 +11,8 @@ function ItemModal({
 }) {
   const { currentUser } = useContext(CurrentUserContext);
   const isOwn = card?.owner === currentUser?._id;
+  console.log(card);
+  console.log(currentUser);
 
   // Creating a variable which you'll then set in `className` for the delete button
   const itemDeleteButtonClassName = `modal__delete-button ${
@@ -29,7 +31,7 @@ function ItemModal({
         <div className="modal__footer">
           <div className="modal__item-info">
             <h2 className="modal__caption">{card.name}</h2>
-
+            {/* Lost delete button  after I updated code with "isOwn" */}
             {isOwn && (
               <button
                 type="button"

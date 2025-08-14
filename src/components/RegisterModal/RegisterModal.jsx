@@ -98,7 +98,6 @@ export default function RegisterModal({
           Sign up
         </button>
         <button type="button" className="modal__submit" onClick={onLogin}>
-          {/*  onLogin={openLoginModal} ?? */}
           or Log in
         </button>
       </div>

@@ -111,8 +111,6 @@ export default function AddItemModal({
           />
           <span className="modal__radio-text">Cold</span>
         </label>
-
-        {/* ADD THE BUTTON */}
       </fieldset>
     </ModalWithForm>
   );

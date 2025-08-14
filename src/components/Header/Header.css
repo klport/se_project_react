@@ -72,6 +72,17 @@
   width: 40px;
   border-radius: 50%;
 }
+.header__avatar-placeholder {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 768px) {
   .header {

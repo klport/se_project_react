@@ -21,6 +21,8 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
     day: "numeric",
   });
 
+  const userInitial = currentUser?.name?.[0]?.toUpperCase() || "?";
+
   return (
     <header className="header">
       <div className="header__desktop-container">
@@ -65,7 +67,9 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
                     className="header__avatar"
                   />
                 ) : (
-                  <span>K {currentUser.name}</span>
+                  <div className="header__avatar-placeholder">
+                    {userInitial}
+                  </div>
                 )}
                 {/* 1st letter of user name, make it CAPS */}
               </div>

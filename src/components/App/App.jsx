@@ -20,6 +20,7 @@ import { registerUser, loginUser, getCurrentUser } from "../../utils/auth";
 
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 function App() {
   const [weatherData, setWeatherData] = useState({
@@ -31,7 +32,7 @@ function App() {
   });
 
   const [clothingItems, setClothingItems] = useState([]);
-  const [activeModal, setActiveModal] = useState(" "); //login-modal opens the modal for testing
+  const [activeModal, setActiveModal] = useState(""); //login-modal opens the modal for testing
   const [selectedCard, setSelectedCard] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +41,6 @@ function App() {
 
   const navigate = useNavigate();
 
-  console.log(currentTemperatureUnit);
   const handleToggleSwitchChange = () => {
     //if F then C; if C then F
     setCurrentTemperatureUnit(currentTemperatureUnit === "F" ? "C" : "F");
@@ -83,6 +83,10 @@ function App() {
     setActiveModal("register-modal");
   };
 
+  const handleOpenEditProfileModal = () => {
+    setActiveModal("edit-modal");
+  };
+
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     setIsLoading(true);
     return addItem({ name, imageUrl, weather })
@@ -108,25 +112,29 @@ function App() {
   }, []);
 
   // review this useEffect
-  // useEffect(() => {
-  //   const token = localStorage.getItem("jwt");
-  //   if (!token) {
-  //     setIsLoggedIn(false);
-  //     return;
-  //   }
+  useEffect(() => {
+    const token = localStorage.getItem("jwt");
+    if (!token) {
+      setIsLoggedIn(false);
+      return;
+    }
 
-  //   fetch("http://localhost:3001/users/me", {
-  //     headers: { Authorization: Bearer ${token} },
-  //   })
-  //     .then((res) => {
-  //       if (!res.ok) throw new Error("Token invalid");
-  //       return res.json();
-  //     })
-  //     .then(() => setIsLoggedIn(true))
-  //     .catch(() => {
-  //       localStorage.removeItem("jwt");
-  //       setIsLoggedIn(false);
-  //     });
+    fetch("http://localhost:3001/users/me", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        if (!res.ok) throw new Error("Token invalid");
+        return res.json();
+      })
+      .then((data) => {
+        setCurrentUser(data);
+        setIsLoggedIn(true);
+      })
+      .catch(() => {
+        localStorage.removeItem("jwt");
+        setIsLoggedIn(false);
+      });
+  }, []);
 
   useEffect(() => {
     // is there supposed to be an "api" here?
@@ -246,6 +254,7 @@ function App() {
                       clothingItems={clothingItems}
                       handleOpenModal={handleAddClick}
                       handleLogout={handleLogout}
+                      handleOpenEditProfileModal={handleOpenEditProfileModal}
                     />
                   </ProtectedRoute>
                 }
@@ -287,6 +296,15 @@ function App() {
             onLogin={handleLogin}
             isLoading={isLoading}
             onSignUpButtonClick={openRegisterModal}
+          />
+
+          <EditProfileModal
+            isOpen={activeModal === "edit-modal"}
+            onClose={closeActiveModal}
+            onEditProfile={(data) =>
+              console.log("Edit profile submitted", data)
+            }
+            isLoading={isLoading}
           />
 
           <Footer />
