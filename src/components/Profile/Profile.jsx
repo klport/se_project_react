@@ -7,6 +7,8 @@ function Profile({
   clothingItems,
   handleOpenModal,
   handleLogout,
+  onEditProfile,
+  currentUser,
 }) {
   console.log(
     "Profile received handleLogout:",
@@ -16,7 +18,7 @@ function Profile({
   return (
     <div className="profile">
       <section className="profile__sidebar">
-        <SideBar handleLogout={handleLogout} />
+        <SideBar handleLogout={handleLogout} onEditProfile={onEditProfile} />
       </section>
 
       <section className="profile__clothing-items">
@@ -24,6 +26,7 @@ function Profile({
           onCardClick={onCardClick}
           clothingItems={clothingItems}
           handleOpenModal={handleOpenModal}
+          currentUser={currentUser}
         />
       </section>
     </div>

@@ -39,4 +39,23 @@ function deleteItem(itemId) {
   });
 }
 
-export { getItems, addItem, deleteItem, handleServerResponse, baseUrl };
+function addCardLike(itemId) {
+  return request(`${baseUrl}/items/${itemId}/likes`, {
+    method: "PUT",
+  });
+}
+function deleteCardLike(itemId) {
+  return request(`${baseUrl}/items/${itemId}/likes`, {
+    method: "DELETE",
+  });
+}
+
+export {
+  getItems,
+  addItem,
+  deleteItem,
+  handleServerResponse,
+  addCardLike,
+  deleteCardLike,
+  baseUrl,
+};

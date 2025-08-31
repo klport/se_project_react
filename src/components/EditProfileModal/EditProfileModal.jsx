@@ -10,7 +10,9 @@ export default function EditProfileModal({
   onEditProfile,
   isLoading,
 }) {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
+  console.log(currentUser?.name); // ✅ works
+  console.log(isLoggedIn); // ✅ works
 
   const { values, handleChange, setValues } = useForm({
     name: "",

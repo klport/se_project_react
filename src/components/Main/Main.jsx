@@ -4,8 +4,15 @@ import ItemCard from "../ItemCard/ItemCard";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import { useContext } from "react";
 
-
-function Main({ weatherData, onCardClick, clothingItems }) {
+function Main({
+  weatherData,
+  onCardClick,
+  clothingItems,
+  onCardLike,
+  currentUser,
+  isLoggedIn,
+}) {
+  // Did i pass the correct props?
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
 
   return (
@@ -24,9 +31,12 @@ function Main({ weatherData, onCardClick, clothingItems }) {
             .map((item) => {
               return (
                 <ItemCard
-                  key={item._id} 
+                  key={item._id}
                   item={item}
                   onCardClick={onCardClick}
+                  onCardLike={onCardLike}
+                  isLoggedIn={isLoggedIn}
+                  currentUser={currentUser}
                 />
               );
             })}

@@ -59,9 +59,9 @@ export default function LoginModal({
         />
       </label>
       <div className="login_modal-buttons"></div>
-      <button type="submit" className="modal__submit">
+      {/* <button type="submit" className="modal__submit">
         Log in
-      </button>
+      </button> */}
       <button
         type="button"
         className="modal__submit"

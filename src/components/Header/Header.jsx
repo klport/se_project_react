@@ -60,7 +60,7 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
             <Link to="/profile" className="header__link">
               <div className="header__user-container">
                 <p className="header__username">{currentUser.name}</p>
-                {currentUser.avatarUrl ? (
+                {false ? (
                   <img
                     src={currentUser.avatarUrl}
                     alt={currentUser.name}

@@ -2,13 +2,15 @@ import "./SideBar.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-function SideBar({ handleLogout }) {
+function SideBar({ handleLogout, onEditProfile }) {
   console.log(
     "SideBar received handleLogout:",
     typeof handleLogout,
     handleLogout
   );
   const { currentUser } = useContext(CurrentUserContext);
+  console.log(Object.entries(currentUser));
+  console.log(currentUser.avatarUrl);
 
   if (!currentUser) {
     return (
@@ -20,7 +22,7 @@ function SideBar({ handleLogout }) {
 
   return (
     <div className="sidebar">
-      {currentUser.avatarUrl ? (
+      {false ? (
         <img
           className="sidebar__avatar"
           src={currentUser.avatarUrl || "/default-avatar.png"}
@@ -28,12 +30,12 @@ function SideBar({ handleLogout }) {
         />
       ) : (
         <div className="sidebar__avatar-placeholder">
-          {currentUser.name.slice(0, 1).toUpperCase}
+          {currentUser.name.slice(0, 1).toUpperCase()}
         </div>
       )}
       <div>
         <p className="sidebar__username">{currentUser.name}</p>
-        <button className="sidebar__button" onClick={open}>
+        <button className="sidebar__button" onClick={onEditProfile}>
           Change profile data
         </button>
         <button

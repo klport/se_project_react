@@ -44,4 +44,20 @@ function getCurrentUser({ token }) {
   });
 }
 
-export { registerUser, loginUser, getCurrentUser };
+function updateUser({ token, name, avatarUrl }) {
+  return fetch(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({ name, avatarUrl }),
+  }).then((res) => {
+    if (!res.ok) {
+      return res.json().then((err) => Promise.reject(err));
+    }
+    return res.json();
+  });
+}
+
+export { registerUser, loginUser, getCurrentUser, updateUser };

@@ -15,8 +15,19 @@ import DeleteConfirmationModal from "../DeleteConfirmationModal/DeleteConfirmati
 import Profile from "../Profile/Profile";
 import ProtectedRoute from "../../ProtectedRoute/ProtectedRoute";
 
-import { getItems, addItem, deleteItem } from "../../utils/api";
-import { registerUser, loginUser, getCurrentUser } from "../../utils/auth";
+import {
+  getItems,
+  addItem,
+  deleteItem,
+  addCardLike,
+  deleteCardLike,
+} from "../../utils/api";
+import {
+  registerUser,
+  loginUser,
+  getCurrentUser,
+  updateUser,
+} from "../../utils/auth";
 
 import RegisterModal from "../RegisterModal/RegisterModal";
 import LoginModal from "../LoginModal/LoginModal";
@@ -63,8 +74,6 @@ function App() {
       .catch((error) => console.error(error));
   };
 
-  // }
-
   const handleAddClick = () => {
     console.log("Add button clicked");
     setActiveModal("add-garment");
@@ -83,10 +92,6 @@ function App() {
     setActiveModal("register-modal");
   };
 
-  const handleOpenEditProfileModal = () => {
-    setActiveModal("edit-modal");
-  };
-
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     setIsLoading(true);
     return addItem({ name, imageUrl, weather })
@@ -100,6 +105,10 @@ function App() {
       .finally(() => {
         setIsLoading(false);
       });
+  };
+
+  const openEditProfileModal = () => {
+    setActiveModal("edit-modal");
   };
 
   useEffect(() => {
@@ -218,6 +227,45 @@ function App() {
     navigate("/");
   };
 
+  const handleEditProfile = ({ name, avatarUrl }) => {
+    setIsLoading(true);
+    const token = localStorage.getItem("jwt");
+
+    return updateUser({ token, name, avatarUrl })
+      .then((updatedUser) => {
+        setCurrentUser(updatedUser); // update React state
+        closeActiveModal(); // close modal
+      })
+
+      .catch((error) => {
+        console.error("Update profile error", error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
+  };
+
+  const handleCardLike = ({ id, isLiked }) => {
+    // If not currently liked → add like
+    !isLiked
+      ? addCardLike(id)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err))
+      : // If currently liked → remove like
+
+        deleteCardLike(id)
+          .then((updatedCard) => {
+            setClothingItems((cards) =>
+              cards.map((item) => (item._id === id ? updatedCard : item))
+            );
+          })
+          .catch((err) => console.log(err));
+  };
+
   return (
     <CurrentTemperatureUnitContext.Provider
       value={{ currentTemperatureUnit, handleToggleSwitchChange }}
@@ -242,6 +290,9 @@ function App() {
                     weatherData={weatherData}
                     onCardClick={handleCardClick}
                     clothingItems={clothingItems}
+                    onCardLike={handleCardLike}
+                    isLoggedIn={isLoggedIn}
+                    currentUser={currentUser}
                   />
                 }
               />
@@ -254,7 +305,8 @@ function App() {
                       clothingItems={clothingItems}
                       handleOpenModal={handleAddClick}
                       handleLogout={handleLogout}
-                      handleOpenEditProfileModal={handleOpenEditProfileModal}
+                      onEditProfile={openEditProfileModal}
+                      currentUser={currentUser}
                     />
                   </ProtectedRoute>
                 }
@@ -301,9 +353,7 @@ function App() {
           <EditProfileModal
             isOpen={activeModal === "edit-modal"}
             onClose={closeActiveModal}
-            onEditProfile={(data) =>
-              console.log("Edit profile submitted", data)
-            }
+            onEditProfile={handleEditProfile}
             isLoading={isLoading}
           />
 
