@@ -18,12 +18,14 @@ function ItemCard({ item, onCardClick, onCardLike, currentUser, isLoggedIn }) {
     <li className="card">
       <div className="card_header">
         <h2 className="card__name">{item.name}</h2>
+
         <img
           onClick={handleCardClick}
           className="card__image"
           src={item.imageUrl}
           alt={item.name}
         />
+
         {isLoggedIn && (
           <button
             className={itemLikeButtonClassName}

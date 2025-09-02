@@ -62,13 +62,13 @@ export default function LoginModal({
       {/* <button type="submit" className="modal__submit">
         Log in
       </button> */}
-      <button
+      {/* <button
         type="button"
         className="modal__submit"
         onClick={onSignUpButtonClick}
       >
         Sign up
-      </button>
+      </button> */}
     </ModalWithForm>
   );
 }

@@ -16,6 +16,33 @@
   font-weight: bold;
 }
 
+.sidebar__buttons {
+  gap: 8px; /* space between the two buttons */
+  font: 1em sans-serif;
+  font-family: "Cabinet Grotesk", sans-serif;
+}
+
+.sidebar__button {
+  display: block; /* stack vertically */
+  width: 100%; /* optional: stretch across container */
+  padding-left: 0;
+  padding-bottom: 8px;
+  background: none; /* no background */
+  border: none; /* no border */
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-weight: 700; /* bold */
+  font-style: normal; /* no italics */
+  font-size: 20px;
+  line-height: 100%; /* as requested */
+  letter-spacing: 0;
+  color: #333; /* adjust to your theme */
+  text-align: left; /* aligns text under profile name */
+  cursor: pointer;
+}
+.sidebar__button:hover {
+  color: gray;
+}
+
 @media screen and (max-width: 580px) {
   .sidebar {
     display: flex;

@@ -10,21 +10,20 @@
 
 .card__name {
   position: absolute;
-  top: 25px;
-  left: 100px;
-  margin: 0;
-  font-family: "Cabinet Grotesk", sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 1;
-  background-color: #ffffff;
-  width: auto;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
   padding: 4px 12px;
   height: 24px;
-  gap: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
   border-radius: 4px;
+  font: 300 16px/1 "Cabinet Grotesk", sans-serif;
   opacity: 0.9;
   z-index: 1;
+  margin: 0;
 }
 
 .cards__list {
@@ -59,12 +58,19 @@
   border: none;
   height: 15px;
   width: 18px;
+  top: 20px;
 }
 
 .card__like-button_active {
+  position: absolute;
   background-image: url("../../assets/likedheart.svg");
   background-repeat: no-repeat;
+  background-repeat: no-repeat;
+  background-size: cover; /*contain or cover? */
   border: none;
+  height: 15px;
+  width: 18px;
+  top: 20px;
 }
 
 @media screen and (max-width: 380px) {

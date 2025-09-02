@@ -49,13 +49,15 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
           }`}
         >
           <ToggleSwitch />
-          <button
-            onClick={handleAddClick}
-            type="button"
-            className="header__add-clothes-btn"
-          >
-            + Add Clothes
-          </button>
+          {isLoggedIn && (
+            <button
+              onClick={handleAddClick}
+              type="button"
+              className="header__add-clothes-btn"
+            >
+              + Add Clothes
+            </button>
+          )}
           {isLoggedIn ? (
             <Link to="/profile" className="header__link">
               <div className="header__user-container">
@@ -76,8 +78,13 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
             </Link>
           ) : (
             <div>
-              <button onClick={onSignUpClick}>Sign up </button>
-              <button onClick={onLoginClick}> Log in</button>
+              <button className="header__action-btn" onClick={onSignUpClick}>
+                Sign Up{" "}
+              </button>
+              <button className="header__action-btn" onClick={onLoginClick}>
+                {" "}
+                Log In
+              </button>
             </div>
           )}
         </nav>

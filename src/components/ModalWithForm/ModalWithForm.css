@@ -55,7 +55,7 @@
 .modal__image {
   height: 498px;
   width: 498px;
-  //object-fit: cover;
+  object-fit: cover;
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
   margin-bottom: 0;
@@ -128,25 +128,29 @@
   font-weight: bold;
 }
 
-.modal__submit {
+.modal__submit-button {
   font-family: "Cabinet Grotesk", sans-serif;
-  border: none;
-  border-radius: 4px;
-  color: #ffffff;
+  font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  background-color: #0000004d;
+  color: #ffffff;
+
+  width: 124px;
   height: 50px;
-  width: 375px;
-  margin-top: px;
+  border: none;
+  border-radius: 4px;
+
+  background-color: #000000; /* Base state */
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.modal__submit:hover {
+.modal__submit-button {
   background-color: black;
 }
 
-.modal__submit:hover:not(:disabled) {
+.modal__submit-button:hover:not(:disabled) {
+  background-color: #00000099;
 }
 
 .modal__footer {

@@ -35,18 +35,20 @@ function SideBar({ handleLogout, onEditProfile }) {
       )}
       <div>
         <p className="sidebar__username">{currentUser.name}</p>
-        <button className="sidebar__button" onClick={onEditProfile}>
-          Change profile data
-        </button>
-        <button
-          className="sidebar__button"
-          onClick={() => {
-            console.log("Button clicked!");
-            handleLogout();
-          }}
-        >
-          Log out
-        </button>
+        <div className="sidebar__buttons">
+          <button className="sidebar__button" onClick={onEditProfile}>
+            Change profile data
+          </button>
+          <button
+            className="sidebar__button"
+            onClick={() => {
+              console.log("Button clicked!");
+              handleLogout();
+            }}
+          >
+            Log out
+          </button>
+        </div>
       </div>
     </div>
   );
