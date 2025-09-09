@@ -26,10 +26,19 @@ export default function LoginModal({
   return (
     <ModalWithForm
       title="Log In"
-      buttonText={isLoading ? "Logging in..." : "Log in"} // what do i change this to ?Logging in... : Logged in
+      buttonText={isLoading ? "Logging In..." : "Log In"}
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      extraButton={
+        <button
+          type="button"
+          className="modal__submit-button modal__submit-button_secondary"
+          onClick={onSignUpButtonClick}
+        >
+          Sign up
+        </button>
+      }
     >
       <label htmlFor="email" className="modal__label">
         Email
@@ -38,7 +47,7 @@ export default function LoginModal({
           className="modal__input"
           id="email"
           name="email"
-          placeholder="Your email"
+          placeholder="Email"
           required
           value={values.email}
           onChange={handleChange}
@@ -59,16 +68,6 @@ export default function LoginModal({
         />
       </label>
       <div className="login_modal-buttons"></div>
-      {/* <button type="submit" className="modal__submit">
-        Log in
-      </button> */}
-      {/* <button
-        type="button"
-        className="modal__submit"
-        onClick={onSignUpButtonClick}
-      >
-        Sign up
-      </button> */}
     </ModalWithForm>
   );
 }

@@ -4,11 +4,13 @@ import "./Profile.css";
 
 function Profile({
   onCardClick,
+  onCardLike,
   clothingItems,
   handleOpenModal,
   handleLogout,
   onEditProfile,
   currentUser,
+  isLoggedIn,
 }) {
   console.log(
     "Profile received handleLogout:",
@@ -24,9 +26,11 @@ function Profile({
       <section className="profile__clothing-items">
         <ClothesSection
           onCardClick={onCardClick}
+          onCardLike={onCardLike}
           clothingItems={clothingItems}
           handleOpenModal={handleOpenModal}
           currentUser={currentUser}
+          isLoggedIn={isLoggedIn}
         />
       </section>
     </div>

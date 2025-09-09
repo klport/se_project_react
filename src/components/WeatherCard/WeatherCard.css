@@ -4,7 +4,7 @@
   height: 80px;
   border-radius: 12px;
   overflow: hidden;
-  font-family: "Cabinet Grotesk", sans-serif;
+  font-family: "Schibsted Grotesk", sans-serif;
 }
 
 .weather-card__temp {
@@ -24,7 +24,7 @@
 }
 
 @media screen and (min-width: 768px) {
- .weather-card {
-  margin-bottom: 40px;
- }
+  .weather-card {
+    margin-bottom: 40px;
+  }
 }

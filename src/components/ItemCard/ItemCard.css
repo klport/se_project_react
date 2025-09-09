@@ -8,22 +8,31 @@
   z-index: 0;
 }
 
-.card__name {
+.card__header {
   position: absolute;
   top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 4px 12px;
-  height: 24px;
+  left: 0;
+  right: 0;
   display: flex;
+  justify-content: center; /* centers the pair as a group */
   align-items: center;
-  justify-content: center;
+  gap: 8px; /* exactly 8px between name + heart */
+  padding: 0 12px; /* keeps content away from card edges */
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+.card__name {
+  padding: 4px 12px;
   background: #fff;
   border-radius: 4px;
-  font: 300 16px/1 "Cabinet Grotesk", sans-serif;
+  font: 300 16px/1 "Schibsted Grotesk", sans-serif;
   opacity: 0.9;
-  z-index: 1;
   margin: 0;
+
+  white-space: nowrap; /* keep name on one line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* truncate with "..." if too long */
 }
 
 .cards__list {
@@ -49,28 +58,19 @@
 }
 
 .card__like-button {
-  position: absolute;
-  bottom: 268px;
-  left: 225px;
+  margin-left: 8px; /* space outside the name pill */
   background-image: url("../../assets/unlikedheart.svg");
+  background-color: transparent;
   background-repeat: no-repeat;
-  background-size: cover; /*contain or cover? */
+  background-size: contain;
   border: none;
-  height: 15px;
+  height: 18px;
   width: 18px;
-  top: 20px;
+  cursor: pointer;
 }
 
 .card__like-button_active {
-  position: absolute;
   background-image: url("../../assets/likedheart.svg");
-  background-repeat: no-repeat;
-  background-repeat: no-repeat;
-  background-size: cover; /*contain or cover? */
-  border: none;
-  height: 15px;
-  width: 18px;
-  top: 20px;
 }
 
 @media screen and (max-width: 380px) {

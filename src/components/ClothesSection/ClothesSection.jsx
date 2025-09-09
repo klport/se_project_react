@@ -1,32 +1,37 @@
 import ItemCard from "../ItemCard/ItemCard";
-import './ClothesSection.css'
+import "./ClothesSection.css";
 
-function ClothesSection({ onCardClick, clothingItems, handleOpenModal, handleAddClick }) {
-  console.log("handleOpenModal prop:", handleOpenModal); 
+function ClothesSection({
+  onCardClick,
+  onCardLike,
+  clothingItems,
+  handleOpenModal,
+  handleAddClick,
+  isLoggedIn,
+  currentUser,
+}) {
+  console.log("handleOpenModal prop:", handleOpenModal);
 
   console.log("ClothesSection rendered with clothingItems:", clothingItems);
   return (
     <div className="clothes-section">
       <div className="clothes-section__add-item">
-        
         <p>Your items</p>
         <button
-        className="header__add-profile-clothes-btn"
+          className="header__add-profile-clothes-btn"
           type="submit"
           onClick={() => {
             console.log("Button clicked!");
             handleOpenModal();
           }}
         >
-          + Add New 
+          + Add New
         </button>
         <button
           onClick={handleAddClick}
           type="button"
           className="header__add-clothes-btn"
-        >
-        
-        </button>
+        ></button>
       </div>
       <ul className="clothes-section__items">
         {clothingItems
@@ -38,8 +43,10 @@ function ClothesSection({ onCardClick, clothingItems, handleOpenModal, handleAdd
               <ItemCard
                 key={item._id}
                 item={item}
-                // TODO - pass as prop
                 onCardClick={onCardClick}
+                isLoggedIn={isLoggedIn}
+                onCardLike={onCardLike}
+                currentUser={currentUser}
               />
             );
           })}

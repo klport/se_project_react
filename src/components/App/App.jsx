@@ -302,11 +302,13 @@ function App() {
                   <ProtectedRoute isLoggedIn={isLoggedIn}>
                     <Profile
                       onCardClick={handleCardClick}
+                      onCardLike={handleCardLike}
                       clothingItems={clothingItems}
                       handleOpenModal={handleAddClick}
                       handleLogout={handleLogout}
                       onEditProfile={openEditProfileModal}
                       currentUser={currentUser}
+                      isLoggedIn={isLoggedIn}
                     />
                   </ProtectedRoute>
                 }
