@@ -36,7 +36,7 @@ export default function LoginModal({
           className="modal__submit-button modal__submit-button_secondary"
           onClick={onSignUpButtonClick}
         >
-          Sign up
+          or Sign up
         </button>
       }
     >
@@ -67,7 +67,6 @@ export default function LoginModal({
           onChange={handleChange}
         />
       </label>
-      <div className="login_modal-buttons"></div>
     </ModalWithForm>
   );
 }

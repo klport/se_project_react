@@ -71,7 +71,7 @@
   line-height: 20px;
   border-radius: 20px;
   font-family: "Schibsted Grotesk", sans-serif;
-  position: fixed;
+  position: relative;
 }
 
 .modal__preview-content {
@@ -134,18 +134,22 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px; /* space between buttons */
+  gap: 8px;
   margin-top: 20px;
 }
 
 .modal__submit-button {
+  display: inline-flex !important; /* force inline inside flex */
+  justify-content: center;
+  align-items: center;
+
   font-family: "Schibsted Grotesk", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
   color: #ffffff;
 
-  width: 124px;
+  min-width: 124px; /* keeps buttons same size */
   height: 50px;
   border: none;
   border-radius: 4px;
@@ -157,13 +161,24 @@
 
 /* Secondary button (Sign up) */
 .modal__submit-button_secondary {
-  background-color: transparent;
-  color: #000;
-  border: 1px solid #000;
+  display: inline; /* inline so it stays next to the primary button */
+  background: none !important; /* no background */
+  border: none !important; /* no border */
+  color: #000 !important; /* black text */
+  font-family: "Cabinet Grotesk", sans-serif; /* your requested font */
+  font-weight: 700; /* bold */
+  font-style: normal; /* bold already applied via font-weight */
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  cursor: pointer;
+  padding: 0; /* remove extra padding */
 }
 
 .modal__submit-button_secondary:hover {
+  text-decoration: underline;
   background-color: #f3f3f3;
+  color: #00000080 !important;
 }
 
 .modal__submit-button:hover:not(:disabled) {

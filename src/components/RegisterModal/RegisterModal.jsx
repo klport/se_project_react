@@ -94,12 +94,10 @@ export default function RegisterModal({
         />
       </label>
       <div className="register_modal-buttons">
-        <button type="submit" className="modal__submit">
-          Sign up
-        </button>
-        <button type="button" className="modal__submit" onClick={onLogin}>
+        <button type="submit" className="modal__submit"></button>
+        {/* <button type="button" className="modal__submit" onClick={onLogin}>
           or Log in
-        </button>
+        </button> */}
       </div>
     </ModalWithForm>
   );
