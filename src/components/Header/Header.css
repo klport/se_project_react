@@ -4,6 +4,10 @@
   font-family: "Schibsted Grotesk", sans-serif;
 }
 
+.header__container {
+  display: flex;
+  align-items: center;
+}
 .header__desktop-container {
   display: flex;
   align-items: center;
@@ -12,14 +16,13 @@
 .header__logo {
   flex: 0 0 88px;
   position: relative;
-  top: -5px;
   margin-right: 24px;
 }
 
 .header__date-and-location {
   margin: 0;
+  padding-top: 8px;
 }
-
 .header__navigation {
   display: flex;
   align-items: center;
@@ -52,6 +55,11 @@
   border: none;
   background: none;
   margin-left: 20px;
+  cursor: pointer;
+}
+
+.header__action-btn:hover {
+  text-decoration: underline;
 }
 
 .header__user-container {
@@ -107,6 +115,8 @@
   }
 
   .header__container {
+    display: flex;
+    align-items: center;
     order: 2;
   }
   .header__menu-button {

@@ -7,7 +7,10 @@ function ModalWithForm({
   children,
   isOpen,
   onSubmit,
-  extraButton,
+  showSignUpButton = false,
+  onSignUpClick,
+  showLogInButton = false,
+  onLogInClick,
 }) {
   return (
     <div className={`modal ${isOpen && "modal_opened"}`}>
@@ -24,7 +27,26 @@ function ModalWithForm({
             <button type="submit" className="modal__submit-button">
               {buttonText}
             </button>
-            {extraButton}
+
+            {showSignUpButton && (
+              <button
+                type="button"
+                className="modal__submit-button_secondary"
+                onClick={onSignUpClick}
+              >
+                Or Sign Up
+              </button>
+            )}
+
+            {showLogInButton && (
+              <button
+                type="button"
+                className="modal__submit-button_secondary"
+                onClick={onLogInClick}
+              >
+                Or Log In
+              </button>
+            )}
           </div>
         </form>
       </div>

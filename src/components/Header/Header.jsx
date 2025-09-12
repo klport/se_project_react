@@ -26,11 +26,10 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
   return (
     <header className="header">
       <div className="header__desktop-container">
-        <Link to="/">
-          <img className="header__logo" alt="WTWR logo" src={logo} />
-        </Link>
-
         <div className="header__container">
+          <Link to="/">
+            <img className="header__logo" alt="WTWR logo" src={logo} />
+          </Link>
           <p className="header__date-and-location">
             {currentDate}, {weatherData.city}
           </p>

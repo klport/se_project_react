@@ -36,14 +36,14 @@ export default function EditProfileModal({
 
   return (
     <ModalWithForm
-      title="Edit profile"
-      buttonText={isLoading ? "Saving..." : "Save"}
+      title="Change profile data"
+      buttonText={isLoading ? "Saving..." : "Save changes"}
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
       <label className="modal__label" htmlFor="name">
-        Name
+        Name *
         <input
           type="text"
           id="name"
@@ -56,7 +56,7 @@ export default function EditProfileModal({
       </label>
 
       <label className="modal__label" htmlFor="avatarUrl">
-        Avatar URL
+        Avatar *
         <input
           type="url"
           id="avatarUrl"

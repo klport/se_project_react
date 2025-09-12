@@ -191,7 +191,7 @@ function App() {
   };
 
   // LOG IN MODAL -  separate concerns: one function to open the modal, another to submit login credentials.
-  const openLoginModal = ({ email, password }) => {
+  const openLoginModal = ({}) => {
     setActiveModal("login-modal");
   };
 
@@ -341,7 +341,7 @@ function App() {
             onClose={closeActiveModal}
             onRegister={handleRegister}
             isLoading={isLoading}
-            onLogin={openLoginModal}
+            openLoginModal={openLoginModal}
           />
 
           <LoginModal

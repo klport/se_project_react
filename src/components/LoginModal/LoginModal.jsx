@@ -30,15 +30,8 @@ export default function LoginModal({
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      extraButton={
-        <button
-          type="button"
-          className="modal__submit-button modal__submit-button_secondary"
-          onClick={onSignUpButtonClick}
-        >
-          or Sign up
-        </button>
-      }
+      showSignUpButton={true} // <-- show secondary button
+      onSignUpClick={onSignUpButtonClick} // <-- callback for click
     >
       <label htmlFor="email" className="modal__label">
         Email

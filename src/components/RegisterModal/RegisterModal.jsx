@@ -7,7 +7,7 @@ export default function RegisterModal({
   isOpen,
   onRegister,
   isLoading,
-  onLogin,
+  openLoginModal,
 }) {
   const { values, handleChange, setValues } = useForm({
     name: "",
@@ -33,10 +33,12 @@ export default function RegisterModal({
   return (
     <ModalWithForm
       title="Sign Up"
-      buttonText={isLoading ? "Registering..." : "Register"}
+      buttonText={isLoading ? "Registering..." : "Sign up"}
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      showLogInButton={true}
+      onLogInClick={openLoginModal}
     >
       <label htmlFor="name" className="modal__label">
         Username
@@ -93,12 +95,6 @@ export default function RegisterModal({
           onChange={handleChange}
         />
       </label>
-      <div className="register_modal-buttons">
-        <button type="submit" className="modal__submit"></button>
-        {/* <button type="button" className="modal__submit" onClick={onLogin}>
-          or Log in
-        </button> */}
-      </div>
     </ModalWithForm>
   );
 }
