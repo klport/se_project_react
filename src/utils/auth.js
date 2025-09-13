@@ -1,7 +1,6 @@
 import { baseUrl } from "./api";
 
 function registerUser({ name, avatarUrl, email, password }) {
-  debugger;
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {

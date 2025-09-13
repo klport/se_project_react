@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { coordinates, APIkey } from "../../utils/constants";
+import { coordinates, apiKey } from "../../utils/constants";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import ItemModal from "../ItemModal/ItemModal";
@@ -112,7 +112,7 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, APIkey)
+    getWeather(coordinates, apiKey)
       .then((data) => {
         const filteredData = filterWeatherData(data);
         setWeatherData(filteredData);
@@ -191,7 +191,7 @@ function App() {
   };
 
   // LOG IN MODAL -  separate concerns: one function to open the modal, another to submit login credentials.
-  const openLoginModal = ({}) => {
+  const openLoginModal = () => {
     setActiveModal("login-modal");
   };
 
@@ -304,7 +304,7 @@ function App() {
                       onCardClick={handleCardClick}
                       onCardLike={handleCardLike}
                       clothingItems={clothingItems}
-                      handleOpenModal={handleAddClick}
+                      handleAddClick={handleAddClick}
                       handleLogout={handleLogout}
                       onEditProfile={openEditProfileModal}
                       currentUser={currentUser}

@@ -6,7 +6,7 @@ function Profile({
   onCardClick,
   onCardLike,
   clothingItems,
-  handleOpenModal,
+  handleAddClick,
   handleLogout,
   onEditProfile,
   currentUser,
@@ -28,7 +28,7 @@ function Profile({
           onCardClick={onCardClick}
           onCardLike={onCardLike}
           clothingItems={clothingItems}
-          handleOpenModal={handleOpenModal}
+          handleAddClick={handleAddClick}
           currentUser={currentUser}
           isLoggedIn={isLoggedIn}
         />

@@ -5,14 +5,10 @@ function ClothesSection({
   onCardClick,
   onCardLike,
   clothingItems,
-  handleOpenModal,
   handleAddClick,
   isLoggedIn,
   currentUser,
 }) {
-  console.log("handleOpenModal prop:", handleOpenModal);
-
-  console.log("ClothesSection rendered with clothingItems:", clothingItems);
   return (
     <div className="clothes-section">
       <div className="clothes-section__add-item">
@@ -21,8 +17,7 @@ function ClothesSection({
           className="header__add-profile-clothes-btn"
           type="submit"
           onClick={() => {
-            console.log("Button clicked!");
-            handleOpenModal();
+            handleAddClick();
           }}
         >
           + Add New
@@ -35,9 +30,7 @@ function ClothesSection({
       </div>
       <ul className="clothes-section__items">
         {clothingItems
-          // .filter((item) => {
-          //  return item.weather === weatherData.type;
-          //  })
+          .filter((item) => item.owner === currentUser._id) //only keep items owned by the current user
           .map((item) => {
             return (
               <ItemCard
