@@ -63,7 +63,7 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
                 <p className="header__username">{currentUser.name}</p>
                 {false ? (
                   <img
-                    src={currentUser.avatarUrl}
+                    src={currentUser.avatar}
                     alt={currentUser.name}
                     className="header__avatar"
                   />

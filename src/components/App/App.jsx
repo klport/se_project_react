@@ -96,7 +96,7 @@ function App() {
     setIsLoading(true);
     return addItem({ name, imageUrl, weather })
       .then((newItem) => {
-        setClothingItems([newItem, ...clothingItems]);
+        setClothingItems([newItem.data, ...clothingItems]);
         closeActiveModal();
       })
       .catch((error) => {
@@ -128,13 +128,7 @@ function App() {
       return;
     }
 
-    fetch("http://localhost:3001/users/me", {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => {
-        if (!res.ok) throw new Error("Token invalid");
-        return res.json();
-      })
+    getCurrentUser({ token })
       .then((data) => {
         setCurrentUser(data);
         setIsLoggedIn(true);
@@ -169,10 +163,10 @@ function App() {
     };
   }, [activeModal]);
 
-  const handleRegister = ({ name, avatarUrl, email, password }) => {
+  const handleRegister = ({ name, avatar, email, password }) => {
     setIsLoading(true);
 
-    return registerUser({ name, avatarUrl, email, password })
+    return registerUser({ name, avatar, email, password })
       .then(() => {
         return loginUser({ email, password });
       })
@@ -227,11 +221,11 @@ function App() {
     navigate("/");
   };
 
-  const handleEditProfile = ({ name, avatarUrl }) => {
+  const handleEditProfile = ({ name, avatar }) => {
     setIsLoading(true);
     const token = localStorage.getItem("jwt");
 
-    return updateUser({ token, name, avatarUrl })
+    return updateUser({ token, name, avatar })
       .then((updatedUser) => {
         setCurrentUser(updatedUser); // update React state
         closeActiveModal(); // close modal

@@ -38,7 +38,7 @@ export default function LoginModal({
         <input
           type="email"
           className="modal__input"
-          id="email"
+          id="login email"
           name="email"
           placeholder="Email"
           required

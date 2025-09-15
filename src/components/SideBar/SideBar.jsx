@@ -10,7 +10,7 @@ function SideBar({ handleLogout, onEditProfile }) {
   );
   const { currentUser } = useContext(CurrentUserContext);
   console.log(Object.entries(currentUser));
-  console.log(currentUser.avatarUrl);
+  console.log(currentUser.avatar);
 
   if (!currentUser) {
     return (
@@ -25,7 +25,7 @@ function SideBar({ handleLogout, onEditProfile }) {
       {false ? (
         <img
           className="sidebar__avatar"
-          src={currentUser.avatarUrl || "/default-avatar.png"}
+          src={currentUser.avatar || "/default-avatar.png"}
           alt="User avatar"
         />
       ) : (

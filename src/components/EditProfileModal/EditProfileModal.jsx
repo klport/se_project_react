@@ -11,12 +11,13 @@ export default function EditProfileModal({
   isLoading,
 }) {
   const { currentUser, isLoggedIn } = useContext(CurrentUserContext);
-  console.log(currentUser?.name); // ✅ works
-  console.log(isLoggedIn); // ✅ works
+  console.log(currentUser?.name);
+  console.log(isLoggedIn); //
+  console.log("Full currentUser object:", currentUser);
 
   const { values, handleChange, setValues } = useForm({
     name: "",
-    avatarUrl: "",
+    avatar: "",
   });
 
   // Pre-fill form when modal opens
@@ -24,7 +25,11 @@ export default function EditProfileModal({
     if (isOpen && currentUser) {
       setValues({
         name: currentUser.name || "",
-        avatarUrl: currentUser.avatarUrl || "",
+        avatar: currentUser.avatar || "",
+      });
+      console.log("Values being set:", {
+        name: currentUser.name || "",
+        avatar: currentUser.avatar || "",
       });
     }
   }, [isOpen, currentUser]);
@@ -55,14 +60,14 @@ export default function EditProfileModal({
         />
       </label>
 
-      <label className="modal__label" htmlFor="avatarUrl">
+      <label className="modal__label" htmlFor="avatar">
         Avatar *
         <input
           type="url"
-          id="avatarUrl"
-          name="avatarUrl"
+          id="avatar"
+          name="avatar"
           className="modal__input"
-          value={values.avatarUrl}
+          value={values.avatar || ""}
           onChange={handleChange}
           required
         />

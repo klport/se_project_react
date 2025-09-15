@@ -1,18 +1,13 @@
-import { baseUrl } from "./api";
+import { baseUrl, handleServerResponse } from "./api";
 
-function registerUser({ name, avatarUrl, email, password }) {
+function registerUser({ name, avatar, email, password }) {
   return fetch(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ name, avatarUrl, email, password }),
-  }).then((res) => {
-    if (!res.ok) {
-      return res.json().then((err) => Promise.reject(err));
-    }
-    return res.json();
-  });
+    body: JSON.stringify({ name, avatar, email, password }),
+  }).then(handleServerResponse);
 }
 
 function loginUser({ email, password }) {
@@ -22,12 +17,7 @@ function loginUser({ email, password }) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ email, password }),
-  }).then((res) => {
-    if (!res.ok) {
-      return res.json().then((err) => Promise.reject(err));
-    }
-    return res.json();
-  });
+  }).then(handleServerResponse);
 }
 
 function getCurrentUser({ token }) {
@@ -35,28 +25,18 @@ function getCurrentUser({ token }) {
     headers: {
       authorization: `Bearer ${token}`,
     },
-  }).then((res) => {
-    if (!res.ok) {
-      return res.json().then((err) => Promise.reject(err));
-    }
-    return res.json();
-  });
+  }).then(handleServerResponse);
 }
 
-function updateUser({ token, name, avatarUrl }) {
+function updateUser({ token, name, avatar }) {
   return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify({ name, avatarUrl }),
-  }).then((res) => {
-    if (!res.ok) {
-      return res.json().then((err) => Promise.reject(err));
-    }
-    return res.json();
-  });
+    body: JSON.stringify({ name, avatar }),
+  }).then(handleServerResponse);
 }
 
 export { registerUser, loginUser, getCurrentUser, updateUser };
