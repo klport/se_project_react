@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import "./Header.css";
 import logo from "../../assets/logo.svg";
-import avatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import menuIcon from "../../assets/menuIcon.svg";
 import modalClose from "../../assets/modalClose.png";
@@ -61,7 +60,7 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
             <Link to="/profile" className="header__link">
               <div className="header__user-container">
                 <p className="header__username">{currentUser.name}</p>
-                {false ? (
+                {currentUser.avatar ? (
                   <img
                     src={currentUser.avatar}
                     alt={currentUser.name}
@@ -72,7 +71,6 @@ function Header({ handleAddClick, weatherData, onSignUpClick, onLoginClick }) {
                     {userInitial}
                   </div>
                 )}
-                {/* 1st letter of user name, make it CAPS */}
               </div>
             </Link>
           ) : (

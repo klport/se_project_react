@@ -9,8 +9,6 @@ function SideBar({ handleLogout, onEditProfile }) {
     handleLogout
   );
   const { currentUser } = useContext(CurrentUserContext);
-  console.log(Object.entries(currentUser));
-  console.log(currentUser.avatar);
 
   if (!currentUser) {
     return (
@@ -22,7 +20,7 @@ function SideBar({ handleLogout, onEditProfile }) {
 
   return (
     <div className="sidebar">
-      {false ? (
+      {currentUser.avatar ? (
         <img
           className="sidebar__avatar"
           src={currentUser.avatar || "/default-avatar.png"}
@@ -42,7 +40,6 @@ function SideBar({ handleLogout, onEditProfile }) {
           <button
             className="sidebar__button"
             onClick={() => {
-              console.log("Button clicked!");
               handleLogout();
             }}
           >
