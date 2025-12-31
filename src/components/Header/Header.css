@@ -157,6 +157,43 @@
   }
 }
 
+@media (max-width: 1279px) {
+  .header__container,
+  .header__desktop-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header__logo {
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 767px) {
+  .header {
+    padding: 16px 0 12px;
+  }
+  .header__container,
+  .header__desktop-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header__menu-button {
+    display: block;
+  }
+  .header__container_mobile {
+    display: flex;
+  }
+  .header__logo {
+    margin-right: 0;
+    margin-bottom: 8px;
+    width: 60px;
+    height: 60px;
+  }
+  .header__user-container {
+    gap: 6px;
+  }
+}
+
 /* @media screen and (max-width: 512px) {
   .header {
     padding: 14px; 

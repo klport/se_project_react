@@ -112,12 +112,36 @@ function App() {
   };
 
   useEffect(() => {
-    getWeather(coordinates, apiKey)
-      .then((data) => {
-        const filteredData = filterWeatherData(data);
-        setWeatherData(filteredData);
-      })
-      .catch(console.error);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          getWeather({ latitude, longitude }, apiKey)
+            .then((data) => {
+              const filteredData = filterWeatherData(data);
+              setWeatherData(filteredData);
+            })
+            .catch(console.error);
+        },
+        (error) => {
+          // If user denies location or error occurs, fallback to default coordinates
+          getWeather(coordinates, apiKey)
+            .then((data) => {
+              const filteredData = filterWeatherData(data);
+              setWeatherData(filteredData);
+            })
+            .catch(console.error);
+        }
+      );
+    } else {
+      // Geolocation not supported, fallback to default coordinates
+      getWeather(coordinates, apiKey)
+        .then((data) => {
+          const filteredData = filterWeatherData(data);
+          setWeatherData(filteredData);
+        })
+        .catch(console.error);
+    }
   }, []);
 
   // review this useEffect
@@ -147,21 +171,6 @@ function App() {
       })
       .catch(console.error);
   }, []);
-
-  useEffect(() => {
-    if (!activeModal) return;
-
-    const handleEscKey = (e) => {
-      if (e.key === "Escape") {
-        closeActiveModal();
-      }
-    };
-    document.addEventListener("keydown", handleEscKey);
-
-    return () => {
-      document.removeEventListener("keydown", handleEscKey);
-    };
-  }, [activeModal]);
 
   const handleRegister = ({ name, avatar, email, password }) => {
     setIsLoading(true);
@@ -318,7 +327,7 @@ function App() {
           />
 
           <ItemModal
-            activeModal={activeModal}
+            isOpen={activeModal === "preview"}
             card={selectedCard}
             onClose={closeActiveModal}
             onDeleteCard={handleDeleteCard}

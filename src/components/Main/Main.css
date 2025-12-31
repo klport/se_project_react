@@ -1,9 +1,21 @@
 .cards__list {
- display: flex;
- flex-wrap: wrap;
- margin: 0;
- padding: 0;
- list-style: none;
- gap: 21px;
- 
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  gap: 21px;
+}
+
+@media (max-width: 1279px) {
+  .cards__list {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 767px) {
+  .cards__list {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

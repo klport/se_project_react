@@ -82,3 +82,8 @@ export const coordinates = {
 };
 
 export const apiKey = "9d1c21a75b0fec61599f98fcc6be82e9";
+
+export const baseUrl =
+  process.env.NODE_ENV === "production"
+    ? "https://api.whattowearproject.twilightparadox.com"
+    : "http://localhost:3001";
